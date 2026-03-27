@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mitchell Richens · Head of Talent Acquisition – Operations · Arriva</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:    #004D73;
+  --navy-dk: #00334E;
+  --navy-xl: #002438;
+  --blue:    #007FDB;
+  --blue-lt: #e4f1fb;
+  --blue-mid:#c2dff5;
+  --white:   #ffffff;
+  --off:     #f8fafc;
+  --bg:      #f2f6fa;
+  --dark:    #0c1e2b;
+  --mid:     #35536a;
+  --muted:   #6b8da6;
+  --rule:    #dde8f0;
+  --radius:  14px;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--dark);overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
+
+/* CURSOR */
+#cursor{width:10px;height:10px;background:var(--navy);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .18s,height .18s,background .18s;}
+#cursor-trail{width:28px;height:28px;border:1.5px solid var(--navy);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.22;}
+body:has(a:hover) #cursor,body:has(button:hover) #cursor{width:22px;height:22px;background:var(--blue);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.1rem 4rem;background:rgba(0,36,56,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(0,127,219,0.15);}
+.nav-logo{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:400;color:var(--white);}
+.nav-logo em{color:var(--blue);}
+.nav-links{display:flex;gap:2.5rem;list-style:none;}
+.nav-links a{font-size:.72rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+
+/* HERO */
+#hero{min-height:100vh;display:grid;grid-template-columns:1fr 380px;position:relative;overflow:hidden;background:var(--navy-xl);}
+.hero-left{display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 4rem 5rem;position:relative;z-index:2;}
+.hero-right{background:rgba(0,127,219,.07);border-left:1px solid rgba(0,127,219,.15);display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 3rem 5rem;position:relative;z-index:2;}
+.hero-bg-lines{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(rgba(0,127,219,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(0,127,219,.05) 1px,transparent 1px);background-size:80px 80px;}
+.hero-bg-grad{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 70% 80% at 30% 80%,rgba(0,77,115,.6) 0%,transparent 70%);}
+
+.hero-tag{font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:2rem;opacity:0;animation:fadeUp .5s ease .2s forwards;}
+.hero-name{font-family:'Fraunces',serif;font-size:clamp(3rem,5.5vw,5.5rem);font-weight:300;line-height:1;color:var(--blue);letter-spacing:-.01em;margin-bottom:.4rem;opacity:0;animation:fadeUp .6s ease .4s forwards;}
+.hero-name em{color:var(--blue);}
+.hero-role{font-family:'Fraunces',serif;font-size:clamp(1.1rem,1.8vw,1.6rem);font-weight:300;color:rgba(255,255,255,.45);margin-bottom:3rem;opacity:0;animation:fadeUp .6s ease .6s forwards;}
+.hero-statement{font-size:1rem;font-weight:300;color:rgba(255,255,255,.62);line-height:1.85;max-width:520px;border-left:2px solid var(--blue);padding-left:1.4rem;opacity:0;animation:fadeUp .6s ease .85s forwards;}
+.hero-statement strong{color:rgba(255,255,255,.9);font-weight:500;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.8rem;opacity:0;animation:fadeUp .6s ease 1.1s forwards;}
+
+.hero-right-label{font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:2rem;opacity:0;animation:fadeUp .5s ease .8s forwards;}
+.hero-stat-list{display:flex;flex-direction:column;gap:0;}
+.hero-stat{padding:1.5rem 0;border-top:1px solid rgba(0,127,219,.18);opacity:0;animation:fadeUp .5s ease forwards;}
+.hero-stat:last-child{border-bottom:1px solid rgba(0,127,219,.18);}
+.hs-num{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:300;color:var(--white);line-height:1;margin-bottom:.2rem;}
+.hs-num span{font-size:1.6rem;}
+.hs-label{font-size:.72rem;font-weight:400;color:rgba(255,255,255,.42);line-height:1.5;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.8rem 1.8rem;border-radius:8px;font-family:'DM Sans',sans-serif;font-weight:500;font-size:.82rem;text-decoration:none;border:none;cursor:none;letter-spacing:.02em;transition:all .22s ease;}
+.btn-white{background:var(--white);color:var(--navy-dk);}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.2);}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.7);border:1px solid rgba(255,255,255,.25);}
+.btn-ghost:hover{border-color:rgba(255,255,255,.6);color:var(--white);transform:translateY(-2px);}
+.btn-navy{background:var(--navy);color:var(--white);}
+.btn-navy:hover{background:var(--navy-dk);transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,77,115,.25);}
+.btn-border{background:transparent;color:var(--navy);border:1.5px solid var(--navy);}
+.btn-border:hover{background:var(--navy);color:var(--white);transform:translateY(-2px);}
+
+/* SHARED SECTION */
+.section{padding:6rem 4rem;}
+.section-inner{max-width:1060px;margin:0 auto;}
+.section-eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:1rem;margin-bottom:1.4rem;}
+.section-eyebrow::after{content:'';flex:1;max-width:60px;height:1px;background:var(--blue-mid);}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,3rem);font-weight:300;line-height:1.2;color:var(--dark);margin-bottom:1rem;}
+.section-title em{color:var(--navy);}
+.section-title strong{font-weight:600;color:var(--dark);}
+
+/* WHY ME — numbered editorial list */
+.why-section{background:var(--white);}
+.why-intro{font-size:1.02rem;font-weight:300;color:var(--mid);line-height:1.85;max-width:640px;margin-bottom:4rem;}
+.why-list{display:flex;flex-direction:column;}
+.why-item{display:grid;grid-template-columns:3rem 1fr;gap:0 2rem;padding:2.2rem 0;border-top:1px solid var(--rule);opacity:0;transform:translateY(20px);transition:all .55s cubic-bezier(.16,1,.3,1);cursor:none;}
+.why-item:last-child{border-bottom:1px solid var(--rule);}
+.why-item.visible{opacity:1;transform:translateY(0);}
+.why-item:hover{background:var(--off);margin:0 -2rem;padding:2.2rem 2rem;}
+.why-item:hover .why-item-title{color:var(--navy);}
+.why-num{font-family:'Fraunces',serif;font-size:.85rem;font-weight:300;color:var(--blue-mid);padding-top:.15rem;}
+.why-item-title{font-family:'Fraunces',serif;font-size:1.22rem;font-weight:400;color:var(--dark);margin-bottom:.55rem;transition:color .2s;}
+.why-item-text{font-size:.875rem;color:var(--muted);line-height:1.85;font-weight:300;}
+
+/* ══ eJH SPOTLIGHT ══ */
+.ejh-section{background:var(--navy-xl);padding:7rem 4rem;}
+.ejh-inner{max-width:1060px;margin:0 auto;}
+.ejh-eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:1.6rem;}
+.ejh-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-bottom:5rem;align-items:end;}
+.ejh-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.8vw,3.4rem);font-weight:300;line-height:1.15;color:var(--white);}
+.ejh-title em{color:var(--blue);}
+.ejh-lead{font-size:1rem;font-weight:300;color:rgba(255,255,255,.55);line-height:1.9;}
+.ejh-lead strong{color:rgba(255,255,255,.85);font-weight:500;}
+
+/* story cards grid */
+.ejh-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(0,127,219,.15);border:1px solid rgba(0,127,219,.15);border-radius:var(--radius);overflow:hidden;margin-bottom:1px;}
+.ejh-card{background:rgba(255,255,255,.03);padding:2.2rem;transition:background .25s;opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease,background .25s;}
+.ejh-card.visible{opacity:1;transform:translateY(0);}
+.ejh-card:hover{background:rgba(0,127,219,.1);}
+.ejh-card-icon{font-size:1.6rem;margin-bottom:1.2rem;display:block;}
+.ejh-card-title{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:400;color:var(--white);margin-bottom:.65rem;line-height:1.3;}
+.ejh-card-body{font-size:.825rem;color:rgba(255,255,255,.45);line-height:1.8;font-weight:300;}
+.ejh-card-body strong{color:rgba(255,255,255,.75);font-weight:500;}
+
+/* wide card — full width */
+.ejh-wide{display:grid;grid-template-columns:1fr 1fr;gap:0;background:rgba(0,127,219,.06);border:1px solid rgba(0,127,219,.15);border-radius:var(--radius);overflow:hidden;margin-top:1px;}
+.ejh-wide-left{padding:2.8rem;border-right:1px solid rgba(0,127,219,.15);}
+.ejh-wide-right{padding:2.8rem;}
+.ejh-wide-label{font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:1rem;}
+.ejh-wide-title{font-family:'Fraunces',serif;font-size:1.35rem;font-weight:400;color:var(--white);margin-bottom:.8rem;line-height:1.3;}
+.ejh-wide-body{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.85;font-weight:300;}
+.ejh-wide-body strong{color:rgba(255,255,255,.75);font-weight:500;}
+.ejh-steps{display:flex;flex-direction:column;gap:0;}
+.ejh-step{padding:.9rem 0;border-top:1px solid rgba(0,127,219,.15);display:grid;grid-template-columns:1.6rem 1fr;gap:.8rem;align-items:start;}
+.ejh-step:last-child{border-bottom:1px solid rgba(0,127,219,.15);}
+.ejh-step-n{font-family:'Fraunces',serif;font-size:.75rem;color:rgba(0,127,219,.5);}
+.ejh-step-text{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;font-weight:300;}
+.ejh-step-text strong{color:rgba(255,255,255,.75);font-weight:500;}
+
+/* CAREER TIMELINE */
+.timeline-section{background:var(--off);}
+.timeline{position:relative;margin-top:3.5rem;}
+.tl-line{position:absolute;left:0;top:.8rem;bottom:0;width:1px;background:linear-gradient(to bottom,var(--navy) 0%,var(--blue) 60%,transparent 100%);}
+.tl-item{padding-left:2.8rem;position:relative;border-top:1px solid var(--rule);opacity:0;transform:translateY(18px);transition:all .6s cubic-bezier(.16,1,.3,1);}
+.tl-item:last-child{border-bottom:1px solid var(--rule);}
+.tl-item.visible{opacity:1;transform:translateY(0);}
+.tl-dot{position:absolute;left:-5px;top:2.1rem;width:11px;height:11px;border-radius:50%;background:var(--navy);border:2px solid var(--off);box-shadow:0 0 0 2px var(--navy);}
+.tl-dot.blue{background:var(--blue);box-shadow:0 0 0 2px var(--blue);}
+.tl-inner{padding:2.2rem 0;display:grid;grid-template-columns:1fr 220px;gap:0 3rem;align-items:start;}
+.tl-date{font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:.5rem;}
+.tl-role{font-family:'Fraunces',serif;font-size:1.22rem;font-weight:400;color:var(--dark);margin-bottom:.18rem;}
+.tl-co{font-size:.8rem;color:var(--muted);margin-bottom:1.2rem;font-weight:400;}
+.tl-points{list-style:none;display:flex;flex-direction:column;gap:.5rem;}
+.tl-points li{font-size:.84rem;color:var(--mid);line-height:1.7;font-weight:300;padding-left:.9rem;position:relative;}
+.tl-points li::before{content:'';position:absolute;left:0;top:.65em;width:4px;height:4px;border-radius:50%;background:var(--blue-mid);}
+.tl-meta{grid-column:2;grid-row:1/5;align-self:start;padding-top:.1rem;}
+.tl-tags{display:flex;flex-direction:column;gap:.4rem;}
+.tag{font-size:.68rem;font-weight:500;padding:.3rem .75rem;border-radius:5px;background:var(--blue-lt);color:var(--navy);display:inline-block;width:fit-content;transition:all .18s;cursor:none;}
+.tag:hover{background:var(--navy);color:var(--white);}
+.tag.b{background:#e0eff9;color:var(--blue);}
+.tag.b:hover{background:var(--blue);color:var(--white);}
+
+/* WHY ARRIVA */
+.arriva-section{background:var(--white);padding:6rem 4rem;}
+.arriva-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.arriva-eyebrow{font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:1.4rem;}
+.arriva-quote{font-family:'Fraunces',serif;font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:300;line-height:1.4;color:var(--dark);margin-bottom:2.2rem;}
+.arriva-quote em{color:var(--navy);}
+.arriva-body{font-size:.92rem;color:var(--mid);line-height:1.9;font-weight:300;margin-bottom:1rem;}
+.arriva-body strong{color:var(--dark);font-weight:500;}
+.arriva-right{padding-top:.5rem;}
+.arriva-point{padding:1.6rem 0;border-top:1px solid var(--rule);opacity:0;transform:translateX(20px);transition:all .55s cubic-bezier(.16,1,.3,1);}
+.arriva-point:last-child{border-bottom:1px solid var(--rule);}
+.arriva-point.visible{opacity:1;transform:translateX(0);}
+.ap-title{font-family:'Fraunces',serif;font-size:1rem;font-weight:400;color:var(--dark);margin-bottom:.4rem;}
+.ap-body{font-size:.8rem;color:var(--muted);line-height:1.75;font-weight:300;}
+
+/* SKILLS */
+.skills-section{background:var(--off);}
+.skills-cols{display:grid;grid-template-columns:repeat(2,1fr);gap:3.5rem;margin-top:3.5rem;}
+.skill-group{opacity:0;transform:translateY(18px);}
+.skill-group.visible{opacity:1;transform:translateY(0);transition:all .6s ease;}
+.sg-label{font-size:.65rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);padding-bottom:.9rem;margin-bottom:1rem;border-bottom:1px solid var(--rule);}
+.pill-wrap{display:flex;flex-wrap:wrap;gap:.4rem;}
+.pill{font-size:.78rem;font-weight:400;padding:.38rem .9rem;border-radius:6px;border:1px solid var(--rule);color:var(--mid);background:var(--white);transition:all .18s ease;cursor:none;}
+.pill:hover{background:var(--navy);color:var(--white);border-color:var(--navy);transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,77,115,.18);}
+
+/* CTA */
+.cta-section{background:var(--white);padding:7rem 4rem;border-top:1px solid var(--rule);}
+.cta-inner{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:1fr auto;align-items:center;gap:3rem;}
+.cta-title{font-family:'Fraunces',serif;font-size:clamp(2rem,4vw,3.8rem);font-weight:300;line-height:1.15;color:var(--dark);}
+.cta-title em{color:var(--navy);}
+.cta-sub{font-size:.85rem;color:var(--muted);margin-top:.8rem;font-weight:300;}
+.cta-actions{display:flex;flex-direction:column;gap:.8rem;flex-shrink:0;}
+
+/* FOOTER */
+footer{background:var(--navy-dk);padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+footer p{font-size:.72rem;color:rgba(255,255,255,.25);}
+footer .fr span{color:var(--blue);}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(20px);}
+.reveal.visible{opacity:1;transform:translateY(0);transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  #hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{padding:8rem 2rem 4rem;}
+  .ejh-intro-grid,.ejh-wide,.arriva-inner,.skills-cols,.cta-inner{grid-template-columns:1fr;gap:2.5rem;}
+  .ejh-grid{grid-template-columns:1fr;}
+  .tl-inner{grid-template-columns:1fr;}
+  .tl-meta{grid-column:1;grid-row:auto;}
+  .tl-tags{flex-direction:row;flex-wrap:wrap;}
+  .section,.ejh-section,.arriva-section,.cta-section{padding:4rem 1.5rem;}
+  nav{padding:1rem 1.5rem;}
+  .nav-links{display:none;}
+  footer{padding:1.5rem 2rem;flex-direction:column;text-align:center;}
+  .cta-actions{flex-direction:row;}
+}
+</style>
+</head>
+<body>
+<div id="cursor"></div>
+<div id="cursor-trail"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo" style="color:var(--blue);">Mitchell Richens</div>
+  <ul class="nav-links">
+    <li><a href="#why">Case for Hire</a></li>
+    <li><a href="#ejh">easyJet holidays</a></li>
+    <li><a href="#journey">Experience</a></li>
+    <li><a href="#arriva">Why Arriva</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-lines"></div>
+  <div class="hero-bg-grad"></div>
+  <div class="hero-left">
+    <div class="hero-tag">Application · Head of Talent Acquisition – Operations · Arriva</div>
+    <h1 class="hero-name">Mitchell Richens</h1>
+    <p class="hero-role">Senior Talent Acquisition Leader</p>
+    <p class="hero-statement">
+      Fourteen years building, leading and transforming Talent Acquisition functions — from startup to scale, from individual contributor to board-level partner. <strong>This is the case for why I'm the right person to lead TA Operations at Arriva.</strong>
+    </p>
+    <div class="hero-btns">
+      <a href="#why" class="btn btn-white">Read the full case</a>
+      <a href="#contact" class="btn btn-ghost">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-label">Career at a glance</div>
+    <div class="hero-stat-list">
+      <div class="hero-stat" style="animation-delay:.9s">
+        <div class="hs-num" id="s1">14<span>+</span></div>
+        <div class="hs-label">Years in Talent Acquisition</div>
+      </div>
+      <div class="hero-stat" style="animation-delay:1s">
+        <div class="hs-num" id="s2">100<span>+</span></div>
+        <div class="hs-label">Contact centre advisors hired for easyJet holidays' in-house operation</div>
+      </div>
+      <div class="hero-stat" style="animation-delay:1.1s">
+        <div class="hs-num" id="s3">400<span>+</span></div>
+        <div class="hs-label">Employees scaled at easyJet holidays from founding hire</div>
+      </div>
+      <div class="hero-stat" style="animation-delay:1.2s">
+        <div class="hs-num" id="s4">8</div>
+        <div class="hs-label">EMEA markets led simultaneously at Qatar Airways</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ME -->
+<section class="section why-section" id="why">
+  <div class="section-inner">
+    <div class="section-eyebrow">The case for Mitchell</div>
+    <h2 class="section-title reveal">Six capabilities directly matched<br>to what this role demands.</h2>
+    <p class="why-intro reveal">The JD calls for proven TA leadership, high-volume delivery, strong stakeholder influence, data-led decision making, and the ability to build something that lasts. Here is the evidence against each.</p>
+    <div class="why-list">
+
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-item-body">
+          <div class="why-item-title">Building &amp; Leading High-Performing TA Teams</div>
+          <div class="why-item-text">I built the TA function at easyJet holidays from a single hire — me — into a team of embedded talent specialists and sourcers. Introducing proactive talent sourcing was a deliberate strategic decision: I moved the function away from reactive, agency-dependent hiring toward a model where we were actively building pipelines before roles went live. That shift directly reduced agency spend and improved speed and quality of hire. I've led teams at every stage of their development, from building from scratch to coaching and performance managing established recruiters.</div>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-item-body">
+          <div class="why-item-title">High-Volume Hiring &amp; Operational Delivery</div>
+          <div class="why-item-text">When easyJet holidays opened its in-house, on-site contact centre, I led the full recruitment campaign to build the team to over 100 advisors — designing the attraction strategy, building the pipeline and managing the end-to-end assessment and selection process. At Qatar Airways I designed and delivered the complete recruitment framework for a 500-seat contact centre in Poland. Hiring at volume without compromising quality or candidate experience is something I've done at real scale, under real commercial pressure.</div>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-item-body">
+          <div class="why-item-title">Senior Stakeholder Partnership</div>
+          <div class="why-item-text">At easyJet holidays I partnered with senior leaders at every level — up to and including the CEO. Reporting directly to the Management Board, I was responsible for translating the business's growth ambitions into a hiring strategy that could actually deliver them. This required the ability to challenge, advise and influence at the most senior levels — not just report on activity, but shape the conversation about what talent the business needed and how to get it.</div>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-item-body">
+          <div class="why-item-title">Data, MI &amp; Continuous Improvement</div>
+          <div class="why-item-text">I built the MI infrastructure and reporting suite at easyJet holidays from scratch — giving the business its first meaningful view of TA performance across pipeline health, time-to-hire, diversity and cost. I introduced technology including one-way video interviewing and psychometric assessment to modernise the selection process, improve candidate experience and give hiring managers better data at the point of decision. I approach TA improvement as a continuous discipline, not a project.</div>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="why-num">05</div>
+        <div class="why-item-body">
+          <div class="why-item-title">Employer Brand &amp; Targeted Attraction</div>
+          <div class="why-item-text">I built the easyJet holidays employer brand from zero — EVP, careers site, social strategy, and targeted attraction campaigns. Most significantly, I led a formal EVP project in partnership with Blackbridge Communications: a structured piece of work involving C-suite interviews and colleague focus groups to articulate what made easyJet holidays a genuinely distinct employer from the wider easyJet Group. That insight now underpins the creative direction of our employer brand. Reaching candidates who may not be actively looking, or who don't see themselves in your employer brand, requires this kind of rigour.</div>
+        </div>
+      </div>
+
+      <div class="why-item">
+        <div class="why-num">06</div>
+        <div class="why-item-body">
+          <div class="why-item-title">Hiring Complexity Across Functions &amp; Seniority</div>
+          <div class="why-item-text">I hire across the full spectrum — from early careers through to Director level. At easyJet holidays I led the recruitment of the business's first Director of Europe, a high-stakes, complex hire requiring a careful search strategy and significant senior stakeholder management. I also designed and launched the business's first graduate scheme — building the entire assessment and selection process from scratch, promoting it internally to secure buy-in, and managing the first cohort end-to-end. The range of roles I manage — Technology, Digital, Commercial, Strategy, Operations — means I'm equally comfortable hiring specialists and generalists, junior and senior.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- eJH SPOTLIGHT -->
+<section class="ejh-section" id="ejh">
+  <div class="ejh-inner">
+    <div class="ejh-eyebrow">In focus · easyJet holidays · Aug 2021 – Present</div>
+    <div class="ejh-intro-grid reveal">
+      <div>
+        <h2 class="ejh-title">Building a TA function<br>from the ground up.</h2>
+      </div>
+      <div>
+        <p class="ejh-lead">I joined easyJet holidays as its <strong>first and only TA hire</strong>, reporting directly to the Management Board, with a remit to build everything: strategy, team, process, technology, and brand. What followed was nearly five years of scaling a startup into a business of 400+ people — while simultaneously professionalising every aspect of how it hires.</p>
+      </div>
+    </div>
+
+    <div class="ejh-grid">
+      <div class="ejh-card">
+        <span class="ejh-card-icon">📣</span>
+        <div class="ejh-card-title">Contact Centre Campaign</div>
+        <div class="ejh-card-body">When easyJet holidays opened its <strong>in-house, on-site contact centre</strong>, I led the full attraction and hiring campaign — building the team to <strong>over 100 advisors</strong>. This required targeted attraction, a scalable assessment process, and the ability to hire at pace without compromising quality or candidate experience.</div>
+      </div>
+      <div class="ejh-card">
+        <span class="ejh-card-icon">🔍</span>
+        <div class="ejh-card-title">Proactive Sourcing Model</div>
+        <div class="ejh-card-body">I embedded <strong>talent sourcers into the team</strong>, shifting the function from reactive, agency-dependent hiring to a proactive model built on direct sourcing and pipeline development. The result: <strong>reduced agency spend</strong> and a TA team that gets ahead of hiring needs rather than reacting to them.</div>
+      </div>
+      <div class="ejh-card">
+        <span class="ejh-card-icon">🎯</span>
+        <div class="ejh-card-title">Director of Europe</div>
+        <div class="ejh-card-body">Led the recruitment of easyJet holidays' <strong>first ever Director of Europe</strong> — a complex, high-stakes search requiring a carefully designed strategy, significant senior stakeholder management, and the confidence to advise the business on market realities and candidate expectations at that level.</div>
+      </div>
+      <div class="ejh-card">
+        <span class="ejh-card-icon">💻</span>
+        <div class="ejh-card-title">Technology &amp; Innovation</div>
+        <div class="ejh-card-body">Introduced <strong>one-way video interviewing</strong> and <strong>psychometric assessments</strong> to modernise the selection process — improving hiring manager experience, standardising evaluation, and giving the business better data at the point of decision. Part of a broader push to build a tech-enabled, insight-led TA function.</div>
+      </div>
+      <div class="ejh-card">
+        <span class="ejh-card-icon">🎓</span>
+        <div class="ejh-card-title">Graduate Scheme — Built from Zero</div>
+        <div class="ejh-card-body">easyJet holidays had <strong>no graduate programme</strong> before I joined. I designed the scheme, made the business case internally to secure support, built the entire assessment and selection process, promoted it externally, and managed the first cohort from application through to onboarding.</div>
+      </div>
+      <div class="ejh-card">
+        <span class="ejh-card-icon">📊</span>
+        <div class="ejh-card-title">MI &amp; Reporting Infrastructure</div>
+        <div class="ejh-card-body">Built the business's <strong>first TA reporting suite</strong> — covering pipeline health, time-to-hire, diversity and cost — giving the Management Board meaningful visibility of TA performance for the first time. Reporting at board level requires translating data into insight, not just presenting numbers.</div>
+      </div>
+    </div>
+
+    <!-- EVP wide card -->
+    <div class="ejh-wide reveal">
+      <div class="ejh-wide-left">
+        <div class="ejh-wide-label">Featured project · EVP &amp; Employer Brand</div>
+        <div class="ejh-wide-title">A rigorous, research-led EVP — built to differentiate easyJet holidays in a crowded market.</div>
+        <p class="ejh-wide-body">easyJet holidays operates under one of the UK's most recognisable aviation brands — but it is a <strong>genuinely distinct employer</strong> with its own culture, pace and proposition. Making that case to candidates required more than good copy. I led a formal EVP development project in partnership with <strong>Blackbridge Communications</strong>, designed to surface and articulate what makes easyJet holidays different from the wider Group — and from the market.</p>
+        <br>
+        <p class="ejh-wide-body">The findings now underpin the creative direction of the employer brand, informing how we show up across every attraction channel. This is ongoing work: we have moved from insight into <strong>creative development</strong>, translating the EVP into a visual and verbal identity that candidates actually connect with.</p>
+      </div>
+      <div class="ejh-wide-right">
+        <div class="ejh-wide-label">How it was done</div>
+        <div class="ejh-steps">
+          <div class="ejh-step">
+            <div class="ejh-step-n">01</div>
+            <div class="ejh-step-text"><strong>Agency partnership</strong> — led the relationship between easyJet holidays and Blackbridge Communications, managing scope, timelines and stakeholder alignment throughout.</div>
+          </div>
+          <div class="ejh-step">
+            <div class="ejh-step-n">02</div>
+            <div class="ejh-step-text"><strong>C-suite interviews</strong> — facilitated structured conversations with the most senior leaders in the business to capture their perspective on culture, ambition and what makes holidays different.</div>
+          </div>
+          <div class="ejh-step">
+            <div class="ejh-step-n">03</div>
+            <div class="ejh-step-text"><strong>Colleague focus groups</strong> — ran sessions across the business to understand the lived employee experience — what people value, what drew them in, and what keeps them.</div>
+          </div>
+          <div class="ejh-step">
+            <div class="ejh-step-n">04</div>
+            <div class="ejh-step-text"><strong>EVP articulation</strong> — distilled the insight into a clear, differentiated proposition that reflects the reality of working at easyJet holidays, not just what the brand aspires to be.</div>
+          </div>
+          <div class="ejh-step">
+            <div class="ejh-step-n">05</div>
+            <div class="ejh-step-text"><strong>Creative development</strong> — now in progress: translating the EVP into a full employer brand identity across digital, social and attraction channels.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER TIMELINE -->
+<section class="section timeline-section" id="journey">
+  <div class="section-inner">
+    <div class="section-eyebrow">Career history</div>
+    <h2 class="section-title reveal">The experience<br>that makes the difference.</h2>
+    <div class="timeline">
+      <div class="tl-line"></div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-inner">
+          <div>
+            <div class="tl-date">Aug 2021 – Present &nbsp;·&nbsp; Nearly 5 Years</div>
+            <div class="tl-role">Talent Acquisition &amp; Employer Brand Lead</div>
+            <div class="tl-co">easyJet holidays &nbsp;·&nbsp; Senior Manager &nbsp;·&nbsp; Digital Tour Operator</div>
+            <ul class="tl-points">
+              <li>Founding TA hire — built the entire function, operating model, team and systems from zero</li>
+              <li>Scaled the business from startup to 400+ employees across Technology, Commercial, Digital, Operations and Strategy</li>
+              <li>Led seasonal contact centre hiring campaign, building the in-house team to 100+ advisors</li>
+              <li>Embedded talent sourcers to drive proactive hiring and reduce agency dependency</li>
+              <li>Introduced 1-way video interviewing and psychometric assessment across selection processes</li>
+              <li>Partnered with Blackbridge Communications on a full EVP research and development programme</li>
+              <li>Designed and launched the business's first graduate scheme including assessment and selection process</li>
+              <li>Built MI suite and board-level TA reporting; partnered with CEO and Management Board on workforce strategy</li>
+            </ul>
+          </div>
+          <div class="tl-meta">
+            <div class="tl-tags">
+              <span class="tag">Function Build</span>
+              <span class="tag">Employer Brand</span>
+              <span class="tag">EVP</span>
+              <span class="tag b">Volume Hiring</span>
+              <span class="tag b">Team Leadership</span>
+              <span class="tag">TA Technology</span>
+              <span class="tag b">Board Reporting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot blue"></div>
+        <div class="tl-inner">
+          <div>
+            <div class="tl-date">June 2020 – Aug 2021 &nbsp;·&nbsp; Fixed Term</div>
+            <div class="tl-role">Talent Acquisition Operations Manager</div>
+            <div class="tl-co">Queen Mary University of London</div>
+            <ul class="tl-points">
+              <li>Led Recruitment &amp; HR Operations across a large, complex multi-site institution during pandemic disruption</li>
+              <li>Partnered with Deans (ELT) and Department Heads on workforce planning, budget alignment and compliance</li>
+              <li>Project managed major HRIS upgrade with improved governance and audit processes</li>
+              <li>Delivered board-level workforce reporting and MI dashboards for strategic decision making</li>
+            </ul>
+          </div>
+          <div class="tl-meta">
+            <div class="tl-tags">
+              <span class="tag">Ops Leadership</span>
+              <span class="tag b">Stakeholder Management</span>
+              <span class="tag">HRIS</span>
+              <span class="tag">Compliance</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-inner">
+          <div>
+            <div class="tl-date">May 2019 – June 2020</div>
+            <div class="tl-role">Regional Talent Acquisition Business Partner</div>
+            <div class="tl-co">Qatar Airways &nbsp;·&nbsp; World's Leading Airline &nbsp;·&nbsp; Europe &amp; APAC</div>
+            <ul class="tl-points">
+              <li>Owned end-to-end TA strategy and delivery across 8 European markets, reporting to Global SVP Talent Acquisition</li>
+              <li>Designed and delivered complete recruitment and assessment framework for a 500-seat Customer Contact Centre in Poland</li>
+              <li>Managed multi-country hiring across Spain, France, Benelux, DACH, Nordics and APAC</li>
+              <li>Opened new operational stations in Dubrovnik and Thessaloniki — teams delivered on time for route launches</li>
+            </ul>
+          </div>
+          <div class="tl-meta">
+            <div class="tl-tags">
+              <span class="tag">EMEA · 8 Markets</span>
+              <span class="tag b">500-Seat CC Hire</span>
+              <span class="tag">Assessment Design</span>
+              <span class="tag b">Global SVP Partner</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot blue"></div>
+        <div class="tl-inner">
+          <div>
+            <div class="tl-date">Jan 2017 – May 2019</div>
+            <div class="tl-role">Talent Acquisition &amp; HR Service Delivery Manager</div>
+            <div class="tl-co">London South Bank University</div>
+            <ul class="tl-points">
+              <li>Led multi-functional TA and HR Advisors team across a large complex institution</li>
+              <li>Drove Employer Brand transformation — new careers site and attraction strategy</li>
+              <li>Built MI dashboards to track hiring efficiency and diversity outcomes</li>
+            </ul>
+          </div>
+          <div class="tl-meta">
+            <div class="tl-tags">
+              <span class="tag">Team Leadership</span>
+              <span class="tag b">Employer Brand</span>
+              <span class="tag">HR Technology</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot"></div>
+        <div class="tl-inner">
+          <div>
+            <div class="tl-date">Aug 2010 – Dec 2016 &nbsp;·&nbsp; 6 Years</div>
+            <div class="tl-role">Senior Recruitment Manager</div>
+            <div class="tl-co">Morgan Hunt &nbsp;·&nbsp; Leading UK Recruitment Consultancy</div>
+            <ul class="tl-points">
+              <li>Progressed from junior consultant to Senior Regional Manager across London and Manchester</li>
+              <li>P&amp;L ownership of MSP contracts with full budgeting and commercial accountability</li>
+              <li>Built and managed high-performing teams of recruiters and account managers</li>
+            </ul>
+          </div>
+          <div class="tl-meta">
+            <div class="tl-tags">
+              <span class="tag">P&amp;L Ownership</span>
+              <span class="tag b">MSP Contracts</span>
+              <span class="tag">Team Leadership</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY ARRIVA -->
+<section class="arriva-section" id="arriva">
+  <div class="arriva-inner">
+    <div class="reveal">
+      <div class="arriva-eyebrow">Why Arriva</div>
+      <div class="arriva-quote">An opportunity to build something<br>genuinely transformative<br>in operational hiring.</div>
+      <p class="arriva-body">I've spent my career inside organisations where getting the right people in is genuinely critical to operational delivery — not a background function, but a direct enabler of commercial success. That's the kind of environment where I do my best work.</p>
+      <p class="arriva-body">Arriva's scale — multi-site, multi-function UK operations, hiring at volume while maintaining quality and candidate experience — represents exactly the type of challenge where <strong>strong TA leadership creates direct, visible impact.</strong></p>
+      <p class="arriva-body">I want to bring what I've built — proactive sourcing models, data infrastructure, employer brand rigour, and a track record of hiring at every level and function — and apply it here at genuine scale.</p>
+    </div>
+    <div class="arriva-right">
+      <div class="arriva-point">
+        <div class="ap-title">Operational TA at Scale</div>
+        <div class="ap-body">Multi-site, high-volume hiring for frontline and specialist roles is where TA leadership creates its most visible impact. I want to operate at that level.</div>
+      </div>
+      <div class="arriva-point">
+        <div class="ap-title">Building Something Lasting</div>
+        <div class="ap-body">I've built TA functions before and I know how transformative strong foundations are. There's a real opportunity to modernise, data-enable and future-proof how Arriva hires across the UK.</div>
+      </div>
+      <div class="arriva-point">
+        <div class="ap-title">A Leadership Role with Real Scope</div>
+        <div class="ap-body">This isn't a maintenance brief — it's a transformation and leadership opportunity. That's what I'm looking for and what I'm ready to deliver.</div>
+      </div>
+      <div class="arriva-point">
+        <div class="ap-title">Purpose Beyond the Office</div>
+        <div class="ap-body">Transport connects communities and keeps the country moving. Hiring the right people for Arriva has direct, visible impact on millions of people. That matters to me.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section skills-section">
+  <div class="section-inner">
+    <div class="section-eyebrow">Capabilities</div>
+    <h2 class="section-title reveal">Matched to the role.<br>Evidenced in practice.</h2>
+    <div class="skills-cols">
+      <div class="skill-group">
+        <div class="sg-label">Talent Acquisition &amp; Volume Hiring</div>
+        <div class="pill-wrap">
+          <span class="pill">Full-Cycle Recruitment</span>
+          <span class="pill">High-Volume Hiring</span>
+          <span class="pill">Contact Centre Hiring</span>
+          <span class="pill">Assessment Design</span>
+          <span class="pill">Talent Pipeline Build</span>
+          <span class="pill">Executive &amp; Director Hiring</span>
+          <span class="pill">Graduate Scheme Design</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-label">Leadership &amp; Strategy</div>
+        <div class="pill-wrap">
+          <span class="pill">TA Team Leadership &amp; Coaching</span>
+          <span class="pill">TA Operating Model Design</span>
+          <span class="pill">Proactive Sourcing Strategy</span>
+          <span class="pill">Workforce Planning</span>
+          <span class="pill">Board-Level Reporting</span>
+          <span class="pill">Senior Stakeholder Influence</span>
+          <span class="pill">Agency Cost Reduction</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-label">Attraction &amp; Employer Brand</div>
+        <div class="pill-wrap">
+          <span class="pill">EVP Research &amp; Development</span>
+          <span class="pill">Targeted Attraction Campaigns</span>
+          <span class="pill">Careers Site</span>
+          <span class="pill">Social &amp; Digital Channels</span>
+          <span class="pill">ED&amp;I Hiring Strategy</span>
+          <span class="pill">Early Careers Pathways</span>
+          <span class="pill">Brand from Zero</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="sg-label">Data, Technology &amp; Governance</div>
+        <div class="pill-wrap">
+          <span class="pill">MI Dashboards &amp; Analytics</span>
+          <span class="pill">Time-to-Hire &amp; Quality Metrics</span>
+          <span class="pill">Video Interviewing Platforms</span>
+          <span class="pill">Psychometric Assessment</span>
+          <span class="pill">ATS Implementation</span>
+          <span class="pill">Process Automation</span>
+          <span class="pill">Compliance &amp; Governance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div>
+      <div class="cta-title">Ready to have<br>a conversation.</div>
+      <p class="cta-sub">Head of Talent Acquisition – Operations &nbsp;·&nbsp; Arriva UK &nbsp;·&nbsp; Mitchell Richens</p>
+    </div>
+    <div class="cta-actions">
+      <a href="mailto:richens1@hotmail.co.uk" class="btn btn-navy">✉ &nbsp;Get in Touch</a>
+      <a href="https://www.linkedin.com/in/mrichens" class="btn btn-border">in &nbsp;LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Mitchell Richens &nbsp;·&nbsp; Talent Acquisition &amp; Employer Brand Lead &nbsp;·&nbsp; 14+ Years</p>
+  <p class="fr">Made for <span>Arriva</span></p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// CURSOR
+var cursor=document.getElementById('cursor'),trail=document.getElementById('cursor-trail'),mx=0,my=0,tx=0,ty=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+setInterval(function(){tx+=(mx-tx)*.14;ty+=(my-ty)*.14;trail.style.left=tx+'px';trail.style.top=ty+'px';},16);
+
+// HERO STAT COUNTERS
+var stats=[
+  {id:'s1',target:14,suf:'+'},
+  {id:'s2',target:100,suf:'+'},
+  {id:'s3',target:400,suf:'+'},
+  {id:'s4',target:8,suf:''}
+];
+setTimeout(function(){
+  stats.forEach(function(s,i){
+    setTimeout(function(){
+      var el=document.getElementById(s.id),cur=0,steps=55,iv=1200/steps;
+      var t=setInterval(function(){
+        cur=Math.min(cur+s.target/steps,s.target);
+        el.innerHTML=Math.floor(cur)+'<span>'+s.suf+'</span>';
+        if(cur>=s.target)clearInterval(t);
+      },iv);
+    },i*180);
+  });
+},1400);
+
+// INTERSECTION OBSERVER
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(!entry.isIntersecting)return;
+    var el=entry.target,delay=parseInt(el.dataset.delay||0);
+    setTimeout(function(){el.classList.add('visible');},delay);
+    io.unobserve(el);
+  });
+},{threshold:.1});
+
+document.querySelectorAll('.why-item,
